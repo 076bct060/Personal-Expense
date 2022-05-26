@@ -28,6 +28,7 @@ class HomePage extends StatelessWidget {
           title: Text("Personal Expense"),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
                 width: double.infinity,
@@ -38,7 +39,7 @@ class HomePage extends StatelessWidget {
                   borderOnForeground: true,
                   color: Colors.blue,
                   child: Text(
-                    "First Item",
+                    "Chart holder",
                     style:
                         TextStyle(fontSize: 25, fontWeight: FontWeight.normal),
                   ),
