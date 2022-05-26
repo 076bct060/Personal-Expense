@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_expense/transaction.dart';
+import 'package:intl/intl.dart';
 
 class TransactionWidget extends StatelessWidget {
   Transaction transaction;
@@ -28,7 +29,7 @@ class TransactionWidget extends StatelessWidget {
                   transaction.name.toString(),
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
-                Text(transaction.date.toString(),
+                Text(DateFormat().format(transaction.date as DateTime),
                     style: TextStyle(color: Colors.grey)),
               ]),
         ],
