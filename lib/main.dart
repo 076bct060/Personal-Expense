@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:personal_expense/inputWidget.dart';
+
 import 'package:personal_expense/transacionWidget.dart';
 import 'package:personal_expense/transaction.dart';
 
@@ -28,12 +30,10 @@ class HomePage extends StatelessWidget {
           title: Text("Personal Expense"),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
                 width: double.infinity,
                 padding: EdgeInsets.all(10),
-                margin: EdgeInsets.all(20),
                 child: Card(
                   elevation: 50,
                   borderOnForeground: true,
@@ -44,11 +44,12 @@ class HomePage extends StatelessWidget {
                         TextStyle(fontSize: 25, fontWeight: FontWeight.normal),
                   ),
                 )),
+            InputWidget(),
             Column(
               children: transaction.map((tx) {
                 return TransactionWidget(tx);
               }).toList(),
-            )
+            ),
           ],
         ));
   }
