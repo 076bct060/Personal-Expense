@@ -9,6 +9,8 @@ class InputWidget extends StatelessWidget {
 }
 
 Widget inputField() {
+  String transactionString = "";
+  String amountString = "";
   return Card(
     elevation: 10,
     borderOnForeground: true,
@@ -19,15 +21,23 @@ Widget inputField() {
         // ignore: prefer_const_literals_to_create_immutables
         children: [
           TextField(
+              onChanged: (value) {
+                transactionString = value;
+              },
               decoration: InputDecoration(
-            labelText: "Transaction",
-          )),
+                labelText: "Transaction",
+              )),
           TextField(
+            onChanged: (value) {
+              amountString = value;
+            },
             decoration: InputDecoration(labelText: "Amount"),
           ),
           TextButton(
             child: Text("Add"),
-            onPressed: () {},
+            onPressed: () {
+              print(transactionString);
+            },
           )
         ],
       ),
