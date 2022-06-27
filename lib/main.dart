@@ -1,10 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:personal_expense/inputWidget.dart';
-
-import 'package:personal_expense/transacionWidget.dart';
-import 'package:personal_expense/transaction.dart';
+import 'package:personal_expense/user_transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,10 +16,6 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  List<Transaction> transaction = [
-    Transaction(amount: 1000, id: "1", date: DateTime.now(), name: "Lunch"),
-    Transaction(amount: 2000, id: "2", date: DateTime.now(), name: "Groceries"),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,12 +37,7 @@ class HomePage extends StatelessWidget {
                         TextStyle(fontSize: 25, fontWeight: FontWeight.normal),
                   ),
                 )),
-            InputWidget(),
-            Column(
-              children: transaction.map((tx) {
-                return TransactionWidget(tx);
-              }).toList(),
-            ),
+            userTransaction()
           ],
         ));
   }
