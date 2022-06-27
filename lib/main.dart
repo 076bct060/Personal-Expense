@@ -19,26 +19,33 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Personal Expense"),
-        ),
-        body: Column(
+      appBar: AppBar(
+        title: Text("Personal Expense"),
+      ),
+      body: Container(
+        child: ListView(
           children: [
-            Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(10),
-                child: Card(
-                  elevation: 50,
-                  borderOnForeground: true,
-                  color: Colors.blue,
-                  child: Text(
-                    "Chart holder",
-                    style:
-                        TextStyle(fontSize: 25, fontWeight: FontWeight.normal),
-                  ),
-                )),
-            userTransaction()
+            Column(
+              children: [
+                Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(10),
+                    child: Card(
+                      elevation: 50,
+                      borderOnForeground: true,
+                      color: Colors.blue,
+                      child: Text(
+                        "Chart holder",
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.normal),
+                      ),
+                    )),
+                userTransaction()
+              ],
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
