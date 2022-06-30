@@ -21,6 +21,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Personal Expense"),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
       ),
       body: Container(
         child: ListView(

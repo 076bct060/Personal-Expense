@@ -16,6 +16,16 @@ class InputWidget extends StatelessWidget {
 
     final titleController = TextEditingController();
     final amountController = TextEditingController();
+    void getInput() {
+      var amount = double.parse(amountController.text);
+      var transaction = titleController.text;
+
+      if (amount <= 0 || transaction == "") {
+        return;
+      }
+      fpointer(transaction, amount);
+    }
+
     return Card(
       elevation: 10,
       borderOnForeground: true,
@@ -26,21 +36,21 @@ class InputWidget extends StatelessWidget {
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             TextField(
-                controller: titleController,
-                decoration: InputDecoration(
-                  labelText: "Transaction",
-                )),
+              controller: titleController,
+              decoration: InputDecoration(
+                labelText: "Transaction",
+              ),
+              onSubmitted: (_) => getInput(),
+            ),
             TextField(
               controller: amountController,
               decoration: InputDecoration(labelText: "Amount"),
               keyboardType: TextInputType.number,
+              onSubmitted: (_) => getInput(),
             ),
             TextButton(
               child: Text("Add"),
-              onPressed: () {
-                fpointer(
-                    titleController.text, double.parse(amountController.text));
-              },
+              onPressed: getInput,
             )
           ],
         ),

@@ -17,7 +17,8 @@ class TransactionWidget extends StatelessWidget {
           Container(
               margin: EdgeInsets.all(20),
               padding: EdgeInsets.all(20),
-              child: Text("NRP \n${transaction.amount}",
+              child: Text(
+                  "NRP \n${double.parse(transaction.amount.toString()).toStringAsFixed(2)}",
                   style: TextStyle(
                       fontSize: 20, color: Color.fromARGB(255, 0, 0, 0))),
               decoration: BoxDecoration(
