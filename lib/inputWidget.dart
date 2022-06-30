@@ -33,6 +33,7 @@ class InputWidget extends StatelessWidget {
             TextField(
               controller: amountController,
               decoration: InputDecoration(labelText: "Amount"),
+              keyboardType: TextInputType.number,
             ),
             TextButton(
               child: Text("Add"),
