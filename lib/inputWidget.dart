@@ -2,10 +2,19 @@
 
 import 'package:flutter/material.dart';
 
-class InputWidget extends StatelessWidget {
+class InputWidget extends StatefulWidget {
   final Function fpointer;
 
   InputWidget(this.fpointer);
+
+  @override
+  State<InputWidget> createState() => _InputWidgetState();
+}
+
+class _InputWidgetState extends State<InputWidget> {
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return inputField();
   }
@@ -14,8 +23,6 @@ class InputWidget extends StatelessWidget {
     // String transactionString = "";
     // String amountString = "";
 
-    final titleController = TextEditingController();
-    final amountController = TextEditingController();
     void getInput() {
       var amount = double.parse(amountController.text);
       var transaction = titleController.text;
@@ -23,7 +30,7 @@ class InputWidget extends StatelessWidget {
       if (amount <= 0 || transaction == "") {
         return;
       }
-      fpointer(transaction, amount);
+      widget.fpointer(transaction, amount);
     }
 
     return Card(
