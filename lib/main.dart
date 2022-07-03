@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'transaction.dart';
@@ -14,6 +16,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "My App",
+      theme: ThemeData(
+          appBarTheme: AppBarTheme(
+              titleTextStyle: TextStyle(
+                  fontFamily: "openSans", fontWeight: FontWeight.bold)),
+          textTheme: ThemeData.light().textTheme.copyWith(
+              titleLarge: TextStyle(
+                  fontFamily: "openSans",
+                  fontWeight: FontWeight.bold,
+                  color: ColorScheme.light().onPrimary),
+              titleMedium: TextStyle(
+                  fontFamily: "openSans",
+                  color: Theme.of(context).primaryColor)),
+          primarySwatch: Colors.purple,
+          colorScheme:
+              ThemeData().colorScheme.copyWith(secondary: Colors.blue)),
       home: HomePage(),
     );
   }
@@ -32,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text("Personal Expense"),
         actions: [
           IconButton(
@@ -49,6 +67,7 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.add))
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
@@ -74,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                     child: Card(
                       elevation: 50,
                       borderOnForeground: true,
-                      color: Colors.blue,
+                      // color: Colors.blue,
                       child: Text(
                         "Chart holder",
                         style: TextStyle(
@@ -104,5 +123,6 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       transactions.add(transaction);
     });
+    Navigator.of(context).pop();
   }
 }

@@ -15,24 +15,23 @@ class TransactionWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-              margin: EdgeInsets.all(20),
-              padding: EdgeInsets.all(20),
-              child: Text(
-                  "NRP \n${double.parse(transaction.amount.toString()).toStringAsFixed(2)}",
-                  style: TextStyle(
-                      fontSize: 20, color: Color.fromARGB(255, 0, 0, 0))),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 216, 236, 0)),
-                  color: Colors.blue)),
+            margin: EdgeInsets.all(20),
+            padding: EdgeInsets.all(20),
+            child: Text(
+                "NRP \n${double.parse(transaction.amount.toString()).toStringAsFixed(2)}",
+                style: Theme.of(context).textTheme.titleMedium),
+            // decoration: BoxDecoration(
+            //     border: Border.all(color: Color.fromARGB(255, 216, 236, 0)),
+            //     color: Colors.blue)
+          ),
           Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Text(transaction.name.toString(),
+                    style: Theme.of(context).textTheme.titleLarge),
                 Text(
-                  transaction.name.toString(),
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  DateFormat().format(transaction.date as DateTime),
                 ),
-                Text(DateFormat().format(transaction.date as DateTime),
-                    style: TextStyle(color: Colors.grey)),
               ]),
         ],
       ),
