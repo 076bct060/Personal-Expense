@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
               titleLarge: TextStyle(
                   fontFamily: "openSans",
                   fontWeight: FontWeight.bold,
-                  color: ColorScheme.light().onPrimary),
+                  color: Colors.purple),
               titleMedium: TextStyle(
                   fontFamily: "openSans",
                   color: Theme.of(context).primaryColor)),
@@ -43,7 +43,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Transaction> transactions = [
-    Transaction(amount: 2000, id: "2", date: DateTime.now(), name: "Groceries")
+    Transaction(
+        amount: 2000,
+        id: "2",
+        date: DateTime.now(),
+        name: "Groceries",
+        categories: "Others")
   ];
   @override
   Widget build(BuildContext context) {
@@ -117,9 +122,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _add(String idArg, double amountArg) {
+  void _add(String idArg, double amountArg, String category) {
     Transaction transaction = Transaction(
-        amount: amountArg, id: "1", date: DateTime.now(), name: idArg);
+        amount: amountArg,
+        id: "1",
+        date: DateTime.now(),
+        name: idArg,
+        categories: category);
     setState(() {
       transactions.add(transaction);
     });

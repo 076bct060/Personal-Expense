@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_expense/transaction.dart';
 import 'package:intl/intl.dart';
@@ -27,8 +28,14 @@ class TransactionWidget extends StatelessWidget {
           Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(transaction.name.toString(),
-                    style: Theme.of(context).textTheme.titleLarge),
+                Text(
+                  transaction.name.toString(),
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                Text(
+                  transaction.categories.toString(),
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 Text(
                   DateFormat().format(transaction.date as DateTime),
                 ),
