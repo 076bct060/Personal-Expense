@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:personal_expense/chartWidget.dart';
 
 import 'transaction.dart';
 import 'inputWidget.dart';
@@ -99,11 +100,7 @@ class _HomePageState extends State<HomePage> {
                       elevation: 50,
                       borderOnForeground: true,
                       // color: Colors.blue,
-                      child: Text(
-                        "Chart holder",
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.normal),
-                      ),
+                      child: ChartWidget(transactions),
                     )),
                 Column(
                   children: [
